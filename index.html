@@ -892,9 +892,9 @@ footer {
   transition: transform .28s ease, opacity .2s ease;
   transform-origin: center;
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* Mobile menu overlay */
 .mobile-nav {
@@ -933,17 +933,105 @@ footer {
 .mobile-nav .mob-cta:hover { background: #1C1916; }
 
 /* ── UTILS ────────────────────────────────────── */
-@media (max-width: 768px) {
-  section { padding: 5rem 6vw; }
-  nav { padding: .85rem 5vw; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero-price-pill { display: none; }
-}
 :focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .ticker-inner, .strip-row { animation: none; }
+}
+
+/* ── MOBILE — 768px ───────────────────────────── */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  section { padding: 4.5rem 5vw; }
+
+  /* Nav */
+  nav {
+    padding: 0 5vw;
+    height: 64px;
+  }
+  .mobile-nav { top: 64px; }
+  .nav-links { display: none; }
+  .hamburger {
+    display: flex;
+    width: 44px; height: 44px;
+    background: rgba(28,25,22,.07);
+    border-radius: 6px;
+  }
+  .hamburger span {
+    width: 22px; height: 3px;
+    background: #1C1916;
+  }
+
+  /* Logo */
+  .logo-mark { width: 36px; height: 36px; }
+  .logo-mark svg { width: 18px; height: 18px; }
+  .logo-wordmark .lw-main { font-size: .95rem; }
+  .logo-wordmark .lw-sub  { font-size: .55rem; }
+
+  /* Hero */
+  .hero { align-items: flex-end; }
+  .hero-content { padding: 0 5vw 6vh; }
+  .hero-price-pill { display: none; }
+  .hero-script { font-size: clamp(1.2rem, 5vw, 2rem); }
+  .hero-sub { font-size: .88rem; max-width: 100%; }
+  .btn-primary, .btn-ghost { font-size: .82rem; }
+
+  /* Section headings */
+  .sec-title { font-size: clamp(2.4rem, 9vw, 4rem); }
+  .sec-script { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+  .sec-body   { font-size: .9rem; max-width: 100%; }
+
+  /* Why section */
+  .why-statement { padding: 2rem; gap: 1.5rem; }
+  .why-statement-text { font-size: .92rem; }
+  .why-cta { font-size: 1rem; padding: .85rem 1.4rem; }
+
+  /* Process — 2×2 grid borders */
+  .proc-step { border-right: none; }
+  .proc-step:nth-child(odd)  { border-right: 1px solid rgba(0,0,0,.12); }
+  .proc-step:nth-child(1),
+  .proc-step:nth-child(2)    { border-bottom: 1px solid rgba(0,0,0,.12); }
+
+  /* Pricing */
+  .price-grid { max-width: 100%; }
+
+  /* Contact */
+  .contact-info .sec-title { font-size: clamp(2rem, 8vw, 3.2rem); }
+
+  /* Footer */
+  footer { flex-direction: column; text-align: center; gap: 1rem; padding: 2.5rem 5vw; }
+  .f-links { justify-content: center; }
+}
+
+/* ── SMALL PHONES — 480px ─────────────────────── */
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+  section { padding: 3.5rem 5vw; }
+
+  nav { height: 60px; }
+  .mobile-nav { top: 60px; }
+
+  .logo-wordmark .lw-sub { display: none; } /* hide tagline on tiny screens */
+
+  .hero-headline { font-size: clamp(3.8rem, 16vw, 6rem); line-height: .9; }
+  .hero-content  { padding: 0 5vw 5vh; }
+
+  .sec-title { font-size: clamp(2.2rem, 11vw, 3.5rem); }
+
+  .why-grid   { gap: 1px; }
+  .why-card   { padding: 1.5rem 1.25rem; }
+  .why-quote  { font-size: 1rem; }
+
+  .stat-row   { flex-wrap: wrap; }
+  .stat-item  { min-width: 48%; }
+
+  .proc-step  { padding: 1.75rem 1.25rem; }
+  .proc-num   { font-size: 2.2rem; }
+
+  .mobile-nav a      { font-size: 1.1rem; padding: 1rem 0; }
+  .mobile-nav .mob-cta { font-size: 1rem; }
+
+  .ticker-item { font-size: .75rem; padding: 0 1.5rem; }
 }
 </style>
 
@@ -1592,32 +1680,7 @@ footer {
   window.addEventListener('resize', () => { clearTimeout(window._aptimer); window._aptimer = setTimeout(draw, 150); });
 })();
 
-/* ── LOGO BADGE CANVAS ────────────────────────── */
-(function() {
-  const c = document.getElementById('badgeCanvas');
-  const ctx = c.getContext('2d');
-  const W = 46, H = 46, cx = 23, cy = 23;
-  ctx.fillStyle = '#1C1916'; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle = '#F4F0E8';
-  ctx.font = 'bold 10px Courier Prime, monospace';
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  // circle text
-  const txt = 'DIGITAL PRESENCE • 2015 • ';
-  const chars = txt.split('');
-  const r = 17, step = (Math.PI * 2) / chars.length;
-  chars.forEach((ch, i) => {
-    const a = i * step - Math.PI/2;
-    ctx.save();
-    ctx.translate(cx + r*Math.cos(a), cy + r*Math.sin(a));
-    ctx.rotate(a + Math.PI/2);
-    ctx.font = '6px Courier Prime, monospace';
-    ctx.fillText(ch, 0, 0);
-    ctx.restore();
-  });
-  // center dot
-  ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2);
-  ctx.fillStyle = '#B84A2A'; ctx.fill();
-})();
+/* badgeCanvas removed — logo is now inline SVG */
 
 /* ── PHOTO STRIP CANVASES ─────────────────────── */
 (function() {
