@@ -764,37 +764,61 @@ section { padding: 7rem 6vw; }
 /* ── TESTIMONIAL BAND ─────────────────────────── */
 .testimonial-band {
   background: var(--cream-dk);
-  padding: 5rem 6vw;
+  padding: 6rem 6vw;
   border-top: 1px solid rgba(0,0,0,.08);
   border-bottom: 1px solid rgba(0,0,0,.08);
 }
-.testimonial-band .inner {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+.testimonial-band > .inner > .t-header {
+  margin-bottom: 3rem;
 }
-@media (max-width: 700px) { .testimonial-band .inner { grid-template-columns: 1fr; } }
+.t-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+@media (max-width: 900px) { .t-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .t-grid { grid-template-columns: 1fr; } }
 
 .testimonial {
   background: var(--warm-wht);
   border-radius: 2px;
   padding: 2rem;
   border: 1px solid rgba(0,0,0,.06);
+  display: flex; flex-direction: column;
+  transition: box-shadow .22s;
 }
+.testimonial:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
 .t-quote {
-  font-family: var(--ff-script);
-  font-size: 1.2rem;
-  color: var(--ink);
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-.t-stars { color: var(--terra); font-size: .9rem; margin-bottom: .5rem; }
-.t-author {
   font-family: var(--ff-mono);
-  font-size: .72rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+  font-size: .88rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  flex: 1;
 }
-.t-role { font-size: .65rem; opacity: .7; display: block; margin-top: .15rem; }
+.t-quote::before { content: '\201C'; font-family: var(--ff-hand); font-size: 2rem; color: var(--terra); line-height: 0; vertical-align: -.5rem; margin-right: .15rem; }
+.t-stars { color: var(--terra); font-size: .85rem; margin-bottom: .65rem; letter-spacing: .05em; }
+.t-author {
+  font-family: var(--ff-sans);
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: auto;
+}
+.t-role {
+  font-family: var(--ff-mono);
+  font-size: .68rem;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: .2rem;
+}
+.t-linkedin {
+  font-family: var(--ff-mono);
+  font-size: .62rem;
+  color: var(--terra);
+  opacity: .7;
+  display: block;
+  margin-top: .15rem;
+  letter-spacing: .04em;
+}
 
 /* ── CONTACT ──────────────────────────────────── */
 #contact { background: var(--warm-wht); }
@@ -1389,20 +1413,48 @@ footer {
 <!-- ───────── TESTIMONIALS ──────────────── -->
 <div class="testimonial-band">
   <div class="inner">
-    <div class="testimonial">
-      <p class="t-stars">★★★★★</p>
-      <p class="t-quote">"Prerana fixed a bug that had been breaking our checkout for three months. Two other developers gave up. She found it in a day."</p>
-      <p class="t-author">Sarah M.<span class="t-role">E-commerce Store Owner</span></p>
+    <div class="t-header">
+      <p class="eyebrow">Real Words from Real People</p>
+      <h2 class="sec-title" style="font-size:clamp(2rem,5vw,3.8rem);">What clients &amp;<br>colleagues say.</h2>
     </div>
-    <div class="testimonial">
-      <p class="t-stars">★★★★★</p>
-      <p class="t-quote">"Our site went from scoring 42 on PageSpeed to 96. The difference in leads has been incredible. Best investment we've made."</p>
-      <p class="t-author">James T.<span class="t-role">Restaurant Group, Vancouver</span></p>
-    </div>
-    <div class="testimonial">
-      <p class="t-stars">★★★★★</p>
-      <p class="t-quote">"She built our entire client booking system from scratch. It replaced three separate tools we were paying for. Game-changer."</p>
-      <p class="t-author">Amara K.<span class="t-role">Wellness Studio Founder</span></p>
+    <div class="t-grid">
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">She is thoughtful, respectful, and incredibly trustworthy — someone you can always count on to do the right thing. Her technical ability is outstanding. She consistently finds solutions, improves systems, and makes complex problems feel manageable.</p>
+        <p class="t-author">Angela Daniels<span class="t-role">Technical Design &amp; Product Development — SweetLegs Clothing</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">Smart. Talented. Courageous. She will always be the hardest working peer in the room. Her skillset is undeniable and her can-do attitude is the icing on the cake. She taught me so much when it comes to problem-solving and figuring out more complex solutions.</p>
+        <p class="t-author">Jashan Khela<span class="t-role">Software Engineer — Full-Stack (ASP.NET, Node, React, Vue)</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">Without long she asserted herself and took her rightful seat at the table. She takes direction well and is a quick learner. I would highly recommend anyone looking for a dedicated, professional, and dependable developer give Prerana the opportunity to prove herself.</p>
+        <p class="t-author">Ryan Deacon<span class="t-role">Owner — Oracast (direct manager)</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">I found myself with a very talented and capable full-stack designer. Prerana was amazing and great to work with. She followed instructions clearly and delivered quality work.</p>
+        <p class="t-author">Ivan Gonzalez Balconi<span class="t-role">Paid Search Specialist — Digital Marketing (client)</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">She was reliable, efficient and easy to work with. Her calm, thoughtful approach made her a great teammate, and I appreciated her ability to balance functionality with user experience.</p>
+        <p class="t-author">Kimberley Burden<span class="t-role">Apparel Sales &amp; Marketing Leader — 20 Years Experience</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
+      <div class="testimonial">
+        <p class="t-stars">★★★★★</p>
+        <p class="t-quote">Prerana's expertise as a developer is considerable. She is highly motivated to learn, is proactive, hard-working, responsible and willing to put energy and time to get the job done. A committed team player who focuses on scope and quality.</p>
+        <p class="t-author">Cristian Aldana<span class="t-role">Full Stack Developer — Isolocity</span><span class="t-linkedin">via LinkedIn</span></p>
+      </div>
+
     </div>
   </div>
 </div>
