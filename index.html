@@ -1,4 +1,6 @@
-<title>Prerana Dev</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Presence — Web Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap">
@@ -285,11 +287,20 @@ nav {
 @media (max-width: 900px) { .why-card--big { grid-row: auto; border-right: none; } }
 
 .why-icon {
-  font-size: 1.6rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 1.25rem;
-  filter: grayscale(20%);
 }
+.why-icon svg {
+  width: 36px; height: 36px;
+  stroke: #E07D5A;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.why-card--big .why-icon svg { width: 44px; height: 44px; }
 .why-quote {
   font-family: var(--ff-script);
   font-size: 1.22rem;
@@ -373,12 +384,13 @@ nav {
   white-space: nowrap;
 }
 .mq-item {
-  font-family: var(--ff-script);
-  font-size: 1.1rem;
-  color: rgba(237,234,227,.38);
-  font-style: italic;
+  font-family: var(--ff-mono);
+  font-size: .88rem;
+  color: rgba(237,234,227,.7);
+  font-style: normal;
+  letter-spacing: .02em;
 }
-.mq-sep { color: var(--terra); opacity: .6; font-size: .8rem; }
+.mq-sep { color: var(--terra); opacity: .9; font-size: .8rem; }
 @keyframes mqScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── TICKER ───────────────────────────────────── */
@@ -485,8 +497,17 @@ section { padding: 7rem 6vw; }
 }
 .srv-card:hover::after { transform: scaleX(1); }
 .srv-icon {
-  font-size: 2rem; margin-bottom: 1.25rem; display: block;
-  filter: grayscale(20%);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.srv-icon svg {
+  width: 40px; height: 40px;
+  stroke: var(--terra);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .srv-name {
   font-family: var(--ff-hand);
@@ -862,7 +883,7 @@ footer {
   font-size: .72rem;
   color: rgba(237,234,227,.5);
 }
-.f-links { display: flex; gap: 2rem;z-index: -1; }
+.f-links { display: flex; gap: 2rem; z-index: -1;}
 .f-links a {
   font-family: var(--ff-hand);
   font-size: 1rem; font-weight: 600;
@@ -1108,28 +1129,28 @@ footer {
 
     <div class="why-grid">
       <div class="why-card why-card--big">
-        <span class="why-icon" aria-hidden="true">🔍</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
         <blockquote class="why-quote">"If customers can't search for your services online, you are practically invisible."</blockquote>
         <p class="why-sub">Google processes 8.5 billion searches per day. Your next customer is in that number.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon" aria-hidden="true">🏪</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
         <blockquote class="why-quote">"A business without a website is like a store with no sign, no door, and no address."</blockquote>
       </div>
       <div class="why-card">
-        <span class="why-icon" aria-hidden="true">📊</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
         <blockquote class="why-quote">"Without an official website, you are handing your market share directly to online competitors."</blockquote>
       </div>
       <div class="why-card">
-        <span class="why-icon" aria-hidden="true">🤝</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <blockquote class="why-quote">"Modern credibility requires a web presence; if people can't find you on Google, they won't trust you in reality."</blockquote>
       </div>
       <div class="why-card">
-        <span class="why-icon" aria-hidden="true">🌍</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
         <blockquote class="why-quote">"You can offer the best service in the world, but it doesn't matter if nobody can find you online."</blockquote>
       </div>
       <div class="why-card">
-        <span class="why-icon" aria-hidden="true">🔑</span>
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span>
         <blockquote class="why-quote">"Your website is the single most accessible entry point for your business — don't lock the door on prospective clients."</blockquote>
       </div>
     </div>
@@ -1205,37 +1226,37 @@ footer {
     <div class="srv-grid">
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">01</span>
-        <span class="srv-icon">🌐</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
         <h3 class="srv-name">Website Development</h3>
         <p class="srv-desc">Hand-coded, fast, mobile-first. No page builders. No bloat. Sites that load in under 2 seconds and rank on Google out of the gate.</p>
       </article>
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">02</span>
-        <span class="srv-icon">🐛</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
         <h3 class="srv-name">Bug Fixing</h3>
         <p class="srv-desc">The bugs other developers gave up on? That's my specialty. I find the root cause and fix it permanently — no duct tape, no patches.</p>
       </article>
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">03</span>
-        <span class="srv-icon">⚙️</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="7 8 12 13 17 8"/></svg></span>
         <h3 class="srv-name">Custom Apps</h3>
         <p class="srv-desc">Software built to your exact business logic — not a generic SaaS you have to work around. Portals, dashboards, booking systems, CRMs.</p>
       </article>
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">04</span>
-        <span class="srv-icon">📈</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
         <h3 class="srv-name">Google Ads</h3>
         <p class="srv-desc">Campaigns that convert. Keyword strategy, ad copy, landing page testing — every dollar tracked against real business results.</p>
       </article>
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">05</span>
-        <span class="srv-icon">🤖</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></span>
         <h3 class="srv-name">Automation</h3>
         <p class="srv-desc">Turn your most repetitive manual work into automated pipelines. Zapier, Make, custom scripts, API integrations. Time back in your hands.</p>
       </article>
       <article class="srv-card">
         <span class="srv-num" aria-hidden="true">06</span>
-        <span class="srv-icon">🛡️</span>
+        <span class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
         <h3 class="srv-name">Maintenance</h3>
         <p class="srv-desc">Security patches, speed monitoring, feature updates, and priority support. Your site stays fast, safe, and current — always.</p>
       </article>
